@@ -7,7 +7,7 @@ import {ROOT_API} from "@socle/config";
 @Injectable({
   providedIn: 'root',
 })
-export abstract class HttpRepositoryService {
+export abstract class HttpBaseService {
   protected _http = inject(HttpClient);
   protected _loaderService = inject(LoadingService);
   protected apiRoot = inject(ROOT_API);

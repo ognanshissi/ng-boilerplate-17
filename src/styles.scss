@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@font-face {
+  font-family: "Raleway";
+  src: url("./assets/fonts/Raleway-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("./assets/fonts/Raleway-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SuezOne";
+  src: url("./assets/fonts/SuezOne-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("./assets/fonts/Raleway-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("./assets/fonts/Raleway-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Raleway, "Helvetica Neue", sans-serif; }
