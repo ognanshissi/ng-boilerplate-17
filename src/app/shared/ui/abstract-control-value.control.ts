@@ -1,48 +1,49 @@
-import { Component, HostBinding, Input, booleanAttribute } from '@angular/core'
-import { ControlValueAccessor } from '@angular/forms'
+import {booleanAttribute, Component, HostBinding, Input} from '@angular/core'
+import {ControlValueAccessor} from '@angular/forms'
 
 @Component({
-    template: '',
+  template: '',
+  standalone: true
 })
 export class AbstractControlValueAccessorComponent<T = any>
-    implements ControlValueAccessor
-{
-    static nextId = 0
+  implements ControlValueAccessor {
+  static nextId = 0
 
-    @HostBinding('id')
-    componentId = `core-input-id-${AbstractControlValueAccessorComponent.nextId++}`
+  @HostBinding('id')
+  componentId = `core-input-id-${AbstractControlValueAccessorComponent.nextId++}`
 
-    @Input()
-    id!: string
+  @Input()
+  id!: string
 
-    @Input({ transform: booleanAttribute }) disabled!: boolean
-    private _value!: T
+  @Input({transform: booleanAttribute}) disabled!: boolean
+  private onTouched!: () => void
+  private onChange!: (value: T) => void
 
-    get value() {
-        return this._value
-    }
+  private _value!: T
 
-    private onTouched!: () => void
+  get value() {
+    return this._value
+  }
 
-    private onChange!: (value: T) => void
+  set value(t: T) {
+    this._value = t
+    this.onTouched()
+    this.onChange(t)
+  }
 
-    set value(t: T) {
-        this._value = t
-        this.onTouched()
-        this.onChange(t)
-    }
+  writeValue(obj: T): void {
+    this.value = obj
+  }
 
-    writeValue(obj: T): void {
-        this.value = obj
-    }
+  registerOnChange(fn: any): void {
+    this.onChange = fn
+  }
 
-    registerOnChange(fn: any): void {
-        this.onChange = fn
-    }
-    registerOnTouched(fn: any): void {
-        this.onTouched = fn
-    }
-    setDisabledState?(isDisabled: boolean): void {
-        this.disabled = isDisabled
-    }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn
+  }
+
+  setDisabledState?(isDisabled: boolean): void {
+    this.disabled = isDisabled
+  }
 }

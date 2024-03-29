@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +14,7 @@
   --core-font-size-default: 1.125rem;
   --core-btn-border-radius: 5px;
   --core-dialog-border-radius: 50px;
-  --core-input-border-radius: 5px;
+  --core-input-border-radius: 1px;
   --mdc-dialog-container-shape: 50px;
 }
 
@@ -54,5 +53,11 @@
   font-style: normal;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Raleway, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Raleway, "Helvetica Neue", sans-serif;
+}

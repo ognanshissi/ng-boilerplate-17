@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
-import {CoreButton, CoreDatepicker, CoreFormField, CoreInput, CoreLabel} from "@socle/ui";
+import {CoreButton, CoreDatepicker, CoreFormField, CoreIcon, CoreInput, CoreLabel} from "@socle/ui";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   standalone: true,
@@ -8,7 +9,9 @@ import {CoreButton, CoreDatepicker, CoreFormField, CoreInput, CoreLabel} from "@
     CoreDatepicker,
     CoreFormField,
     CoreInput,
-    CoreLabel
+    CoreLabel,
+    MatIcon,
+    CoreIcon
   ],
   templateUrl: './dashboard.component.html'
 })

@@ -1,16 +1,16 @@
 core-form-field {
 
+  background-color: white !important;
+
   label {
     @apply block text-left;
   }
 
-
-
   .form-input,
   .form-textarea,
   .form-select,
-  .form-multiselect{
-    @apply mt-1 block w-full text-left  border py-2 px-3 border-gray-300 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary text-xl;
+  .form-multiselect {
+    @apply block w-full text-left border-0 border-b py-2 px-3 border-gray-300 focus:shadow-md focus:border-primary  focus:ring-0 text-sm #{'!important'};
     border-radius: var(--core-input-border-radius) !important;
 
     &.ng-dirty.ng-invalid {
@@ -20,10 +20,9 @@ core-form-field {
     &:has(:disabled) {
       @apply bg-slate-50;
     }
-
   }
 
-  [coreInput]:has(~ core-icon)  {
+  [coreInput]:has(~ core-icon) {
     @apply pr-10 #{'!important'};
   }
 
