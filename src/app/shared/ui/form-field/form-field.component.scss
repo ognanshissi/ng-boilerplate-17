@@ -7,7 +7,7 @@ core-form-field {
   .form-textarea,
   .form-select,
   .form-multiselect {
-    @apply block w-full text-left border-0 border-b py-2 px-3 border-gray-300 focus:shadow-md focus:border-primary  focus:ring-0 text-sm #{'!important'};
+    @apply block w-full text-left border-0 border-b py-2.5 px-3 border-gray-300 focus:shadow-md focus:border-primary  focus:ring-0 text-sm #{'!important'};
     border-radius: var(--core-input-border-radius) !important;
 
     &.ng-dirty.ng-invalid {
