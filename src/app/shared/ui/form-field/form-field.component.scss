@@ -1,9 +1,6 @@
 core-form-field {
-
-  background-color: white !important;
-
   label {
-    @apply block text-left;
+    @apply block text-left text-sm;
   }
 
   .form-input,
