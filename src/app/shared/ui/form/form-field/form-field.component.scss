@@ -1,0 +1,29 @@
+@import 'styles/outline-appearance';
+@import 'styles/fill-appearance';
+
+core-form-field {
+
+    @apply w-auto relative mt-2;
+
+    .input__container {
+        @apply inline-flex rounded-lg items-center mt-1 border-2 px-1 pb-0 m-0 border-gray-300 focus-within:border-primary focus-within:ring-1 focus-within:ring-slate-100 focus-within:shadow;
+        border-radius: var(--core-input-border-radius) !important;
+    }
+
+    // Reset tailwind plugin form
+    .form-input,
+    .form-select,
+    .form-textarea,
+    .form-multi-select {
+        @apply border-none focus:appearance-none outline-none appearance-none focus:ring-0 border-0 mb-0;
+    }
+
+
+    [coreInput]:has(~ coreSuffix) {
+        @apply pr-10 #{'!important'};
+    }
+
+    [coreInput]:has(~ corePrefix) {
+        @apply pl-10 #{'!important'};
+    }
+}

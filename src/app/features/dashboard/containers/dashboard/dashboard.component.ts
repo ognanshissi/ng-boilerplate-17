@@ -1,21 +1,25 @@
-import {Component} from "@angular/core";
-import {CoreButton, CoreDatepicker, CoreFormField, CoreIcon, CoreInput, CoreLabel} from "@socle/ui";
-import {MatIcon} from "@angular/material/icon";
+import { Component } from '@angular/core'
+import { MatIcon } from '@angular/material/icon'
+import {
+  CoreButton,
+  CoreDatepicker,
+  CoreFormField,
+  CoreLabel,
+  CorePrefix,
+} from '@socle/ui'
 
 @Component({
   standalone: true,
   imports: [
     CoreButton,
     CoreDatepicker,
-    CoreFormField,
-    CoreInput,
-    CoreLabel,
     MatIcon,
-    CoreIcon
+    CoreFormField,
+    CoreLabel,
+    CorePrefix,
   ],
-  templateUrl: './dashboard.component.html'
+  templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent {
-}
+export class DashboardComponent {}
 
-export default DashboardComponent;
+export default DashboardComponent

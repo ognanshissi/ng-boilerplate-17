@@ -1,16 +1,14 @@
-<label
-  class="block w-full text-left mt-2 text-sm"
->
+<core-label>
   <ng-content></ng-content>
-</label>
+</core-label>
 
 <div
   (click)="clickContainer($event)"
   [ngClass]="{
-        'border-warn ring-warn focus:border-warn':
-            dateFieldsForm.touched && dateFieldsForm.invalid,
-        'bg-slate-50 cursor-not-allowed': dateFieldsForm.disabled
-    }"
+    'border-warn ring-warn focus:border-warn':
+      dateFieldsForm.touched && dateFieldsForm.invalid,
+    'bg-slate-50 cursor-not-allowed': dateFieldsForm.disabled
+  }"
   aria-labelledby="datefield-label"
   class="datepicker-container"
   tabindex="1"

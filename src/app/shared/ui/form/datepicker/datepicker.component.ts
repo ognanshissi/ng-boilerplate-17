@@ -1,4 +1,4 @@
-import {CommonModule} from '@angular/common'
+import { CommonModule } from '@angular/common'
 import {
   AfterViewChecked,
   booleanAttribute,
@@ -10,6 +10,7 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
+  ViewEncapsulation,
 } from '@angular/core'
 import {
   AbstractControl,
@@ -24,18 +25,20 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms'
-import {MatNativeDateModule} from '@angular/material/core'
-import {MatDatepickerModule} from '@angular/material/datepicker'
-import {MatInputModule} from '@angular/material/input'
-import {Subscription} from 'rxjs'
+import { MatNativeDateModule } from '@angular/material/core'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatInputModule } from '@angular/material/input'
+import { Subscription } from 'rxjs'
 
-import {DatepickerValue} from './datepicker.type'
+import { CoreLabel } from '../form-field'
+import { DatepickerValue } from './datepicker.type'
 
 @Component({
   selector: 'core-datepicker',
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss'],
   standalone: true,
+  encapsulation: ViewEncapsulation.None,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -55,14 +58,17 @@ import {DatepickerValue} from './datepicker.type'
     MatDatepickerModule,
     ReactiveFormsModule,
     FormsModule,
+    CoreLabel,
   ],
 })
 export class CoreDatepicker
-  implements OnInit,
+  implements
+    OnInit,
     ControlValueAccessor,
     Validators,
     AfterViewChecked,
-    OnDestroy {
+    OnDestroy
+{
   static nextId = 0
 
   datepickerControl: FormControl = new FormControl(null) // Handle mat datepicker
@@ -71,7 +77,7 @@ export class CoreDatepicker
 
   @HostBinding() id = `core-datepicker-id-${CoreDatepicker.nextId++}`
 
-  @Input({transform: booleanAttribute}) required!: boolean // default => false
+  @Input({ transform: booleanAttribute }) required!: boolean // default => false
 
   @Input() minDate!: Date
 
@@ -81,7 +87,7 @@ export class CoreDatepicker
 
   @Input() startView: 'year' | 'multi-year' | 'month' = 'month'
 
-  @Input({transform: booleanAttribute}) disabled!: boolean
+  @Input({ transform: booleanAttribute }) disabled!: boolean
 
   @Input() labelPosition: 'center' | 'left' = 'center'
 
@@ -94,8 +100,7 @@ export class CoreDatepicker
   @ViewChild('month') private monthRef!: ElementRef
   @ViewChild('year') private yearRef!: ElementRef
 
-  constructor(private _fb: FormBuilder) {
-  }
+  constructor(private _fb: FormBuilder) {}
 
   get value(): DatepickerValue {
     return this.dateFieldsForm.value
@@ -103,17 +108,15 @@ export class CoreDatepicker
 
   set value(value: DatepickerValue) {
     const date = new Date(`${+value.month}/${+value.day}/${+value.year}`)
-    this.dateFieldsForm.patchValue({...value}, {emitEvent: true})
-    this.datepickerControl.patchValue(date, {emitEvent: true})
+    this.dateFieldsForm.patchValue({ ...value }, { emitEvent: true })
+    this.datepickerControl.patchValue(date, { emitEvent: true })
     this.onChange(date)
     this.onTouched()
   }
 
-  onChange: any = () => {
-  }
+  onChange: any = () => {}
 
-  onTouched: any = () => {
-  }
+  onTouched: any = () => {}
 
   ngAfterViewChecked(): void {
     // Validate day field and move focus
@@ -140,22 +143,19 @@ export class CoreDatepicker
   ngOnInit(): void {
     this.dateFieldsForm = this._fb.group(
       {
-        day: new FormControl({value: null, disabled: this.disabled}, [
+        day: new FormControl({ value: null, disabled: this.disabled }, [
           Validators.required,
           Validators.maxLength(2),
         ]),
-        month: new FormControl(
-          {value: null, disabled: this.disabled},
-          [Validators.required, Validators.maxLength(2)]
-        ),
-        year: new FormControl(
-          {value: null, disabled: this.disabled},
-          [
-            Validators.required,
-            Validators.maxLength(4),
-            Validators.minLength(4),
-          ]
-        ),
+        month: new FormControl({ value: null, disabled: this.disabled }, [
+          Validators.required,
+          Validators.maxLength(2),
+        ]),
+        year: new FormControl({ value: null, disabled: this.disabled }, [
+          Validators.required,
+          Validators.maxLength(4),
+          Validators.minLength(4),
+        ]),
       },
       {
         validators: [dateValidator(this.minDate, this.maxDate)],
@@ -171,11 +171,9 @@ export class CoreDatepicker
           this.datepickerControl.patchValue(date, {
             emitEvent: false,
           })
-          this.onChange(
-            new Date(`${value.month}/${value.day}/${value.year}`)
-          )
+          this.onChange(new Date(`${value.month}/${value.day}/${value.year}`))
         } else {
-          this.datepickerControl.patchValue('', {emitEvent: false})
+          this.datepickerControl.patchValue('', { emitEvent: false })
           this.onChange('')
         }
         this.onTouched()
@@ -190,8 +188,8 @@ export class CoreDatepicker
           .split('/')
         const date = new Date(`${+month}/${+day}/${+year}`)
         this.dateFieldsForm.patchValue(
-          {day, month, year},
-          {emitEvent: false}
+          { day, month, year },
+          { emitEvent: false }
         )
         this.onChange(date)
       } else {
@@ -210,9 +208,7 @@ export class CoreDatepicker
   }
 
   setDisabledState(isDisabled: boolean): void {
-    isDisabled
-      ? this.dateFieldsForm.disable()
-      : this.dateFieldsForm.enable()
+    isDisabled ? this.dateFieldsForm.disable() : this.dateFieldsForm.enable()
   }
 
   writeValue(value: any): void {
@@ -230,7 +226,7 @@ export class CoreDatepicker
   }
 
   validate(_: AbstractControl): ValidationErrors | null {
-    return this.dateFieldsForm.valid ? null : {date: {valid: false}}
+    return this.dateFieldsForm.valid ? null : { date: { valid: false } }
   }
 
   clickContainer(event: Event) {
@@ -248,16 +244,17 @@ export class CoreDatepicker
   }
 
   public keyDownNumberCharType(event: KeyboardEvent) {
-
-    if (!['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(event.key)) {
-      event.preventDefault();
+    if (
+      !['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(event.key)
+    ) {
+      event.preventDefault()
     }
   }
 }
 
 function dateValidator(minDate: Date, maxDate: Date) {
   return (control: AbstractControl): ValidationErrors | null => {
-    const {day, month, year} = control.value
+    const { day, month, year } = control.value
     const errors: string[] = []
 
     if ((day && +day === 0) || +day > 31) {
@@ -293,7 +290,7 @@ function dateValidator(minDate: Date, maxDate: Date) {
     }
 
     if (errors.length) {
-      return {invalid: errors}
+      return { invalid: errors }
     }
     return null
   }

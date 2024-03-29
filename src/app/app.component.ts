@@ -1,8 +1,14 @@
-import {Component} from '@angular/core'
-import {MatButton} from '@angular/material/button'
-import {RouterOutlet} from '@angular/router'
-import {CoreButton, CoreDatepicker, CoreFormField, CoreInput, CoreLabel, LoaderComponent,} from '@socle/ui'
-import {PortalLayoutComponent} from "./layouts";
+import { Component } from '@angular/core'
+import { MatButton } from '@angular/material/button'
+import { RouterOutlet } from '@angular/router'
+import {
+  CoreButton,
+  CoreDatepicker,
+  CoreFormField,
+  CoreLabel,
+  LoaderComponent,
+} from '@socle/ui'
+import { PortalLayoutComponent } from './layouts'
 
 @Component({
   selector: 'app-root',
@@ -15,7 +21,6 @@ import {PortalLayoutComponent} from "./layouts";
     CoreDatepicker,
     CoreFormField,
     CoreLabel,
-    CoreInput,
     PortalLayoutComponent,
   ],
   templateUrl: './app.component.html',
