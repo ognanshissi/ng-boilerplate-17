@@ -24,21 +24,33 @@
       "dom"
     ],
     "paths": {
-      "@socle/ui": ["./src/app/shared/ui/index.ts"],
-      "@socle/pipes": ["./src/app/shared/pipes/index.ts"],
-      "@socle/directives": ["./src/app/shared/directives/index.ts"],
-      "@socle/core/*": ["./src/app/core/*"],
-      "@socle/config": ["./src/app/config/index.ts"],
-      "@socle/features/*": ["./src/app/features/*"],
-
+      "@socle/ui": [
+        "./src/app/shared/ui/index.ts"
+      ],
+      "@socle/pipes": [
+        "./src/app/shared/pipes/index.ts"
+      ],
+      "@socle/directives": [
+        "./src/app/shared/directives/index.ts"
+      ],
+      "@socle/core/*": [
+        "./src/app/core/*"
+      ],
+      "@socle/layouts": [
+        "./src/app/layouts/index.ts"
+      ],
+      "@socle/config": [
+        "./src/app/config/index.ts"
+      ],
+      "@socle/features/*": [
+        "./src/app/features/*"
+      ]
     }
   },
-
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  },
-
+  }
 }

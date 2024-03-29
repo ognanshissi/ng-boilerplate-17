@@ -1,6 +1,5 @@
 import {Routes} from '@angular/router';
-import {PortalLayoutComponent} from "./layouts/portal-layout/portal-layout.component";
-import {AuthLayoutComponent} from "./layouts";
+import {AuthLayoutComponent, PortalLayoutComponent} from "@socle/layouts";
 
 export const routes: Routes = [
   {
@@ -22,5 +21,10 @@ export const routes: Routes = [
     path: 'auth',
     component: AuthLayoutComponent,
     loadChildren: () => import('./features/authentication/authentication.routes')
+  },
+  {
+    path: '**',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
   }
 ];
