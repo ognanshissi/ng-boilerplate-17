@@ -1,0 +1,52 @@
+$dark-primary-text: rgba(black, 0.87);
+$light-primary-text: white;
+
+$primary-palette: (
+  50: #fedff1,
+  100: #f8addd,
+  200: #f270c7,
+  300: #e419ae,
+  400: #d4009b,
+  500: #c30089,
+  600: #b60087,
+  700: #a40083,
+  800: #93007e,
+  900: #750076,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+  ),
+);
+
+$accent-palette: (
+  50: #dcf3ee,
+  100: #a8e1d2,
+  200: #6bcdb5,
+  300: #00b997,
+  400: #00a982,
+  500: #00986f,
+  600: #008b62,
+  700: #007b53,
+  800: #006b46,
+  900: #004f2a,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $light-primary-text,
+    400: $light-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+  ),
+);

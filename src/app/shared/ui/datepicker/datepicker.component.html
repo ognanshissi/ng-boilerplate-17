@@ -1,0 +1,99 @@
+<label
+    for="datefield-label"
+    id="datefield-label"
+    class="block w-full text-left mt-2"
+>
+    <ng-content></ng-content>
+</label>
+
+<div
+    tabindex="1"
+    class="datepicker-container"
+    (click)="clickContainer($event)"
+    aria-labelledby="datefield-label"
+    [ngClass]="{
+        'border-warn ring-warn focus:border-warn':
+            dateFieldsForm.touched && dateFieldsForm.invalid,
+        'bg-slate-50 cursor-not-allowed': dateFieldsForm.disabled
+    }"
+>
+    <div
+        class="flex space-x-1 items-center"
+        role="form"
+        [formGroup]="dateFieldsForm"
+    >
+        <!-- Day -->
+        <input
+            type="text"
+            formControlName="day"
+            maxlength="2"
+            tabindex="2"
+            #day
+            class="appearance-none focus:appearance-none focus:shadow-none shadow-none outline-none m-0 p-0 w-[50px]"
+            placeholder="JJ"
+        />
+        <span class="text-gray-500">/</span>
+        <!-- Month -->
+        <input
+            type="text"
+            formControlName="month"
+            maxlength="2"
+            tabindex="3"
+            #month
+            class="appearance-none focus:appearance-none focus:shadow-none shadow-none outline-none m-0 p-0 w-[50px]"
+            placeholder="MM"
+        />
+        <span class="text-gray-500">/</span>
+        <!-- Year -->
+        <input
+            type="text"
+            formControlName="year"
+            maxlength="4"
+            tabindex="4"
+            #year
+            class="appearance-none focus:appearance-none focus:shadow-none shadow-none outline-none m-0 p-0 w-[100px]"
+            placeholder="AAAA"
+        />
+    </div>
+    <div>
+        <input
+            type="text"
+            style="visibility: hidden"
+            class="h-0 w-0 z-0"
+            matInput
+            [matDatepicker]="picker"
+            [max]="maxDate"
+            [min]="minDate"
+            [formControl]="datepickerControl"
+        />
+        <mat-datepicker
+            #picker
+            [disabled]="dateFieldsForm.disabled"
+        ></mat-datepicker>
+        <div (click)="picker.open()" class="flex" tabindex="5">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6 hover:cursor-pointer text-accent text-center"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                />
+            </svg>
+        </div>
+    </div>
+</div>
+<!-- Hidden field -->
+<div class="mt-1" *ngIf="dateFieldsForm.hasError('invalid')">
+    <div
+        class="text-warn text-xs font-semibold"
+        *ngFor="let error of dateFieldsForm.getError('invalid')"
+    >
+        {{ error }}
+    </div>
+</div>

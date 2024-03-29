@@ -1,0 +1,174 @@
+@import "../../../../assets/scss/mixins";
+
+
+@mixin box-shadow($color, $opacity: 0.40) {
+  box-shadow: 0 2px 4px 0 rgba($color, $opacity);
+}
+
+@mixin button-hover($color) {
+  background-color: rgba($color);
+  @apply text-white;
+}
+
+.core-button-base {
+  @apply px-3 py-2 cursor-pointer;
+  transition: all;
+  transition-duration: 0.3s;
+}
+
+.core-raised-button-container.button--rounded,
+.core-outlined-button-container.button--rounded,
+.core-filled-button-container.button--rounded {
+  @apply rounded-full #{'!important'}
+}
+
+.core-raised-button-container,
+.core-outlined-button-container,
+.core-filled-button-container {
+  @apply border;
+}
+
+.core-button-base.button--disabled {
+  @apply cursor-not-allowed #{'!important'};
+}
+
+// Filled button
+.core-filled-button-container {
+  @include border-radius();
+
+  &.button-primary {
+    @apply bg-primary text-white border-primary;
+
+    &:hover {
+      @include button-shadow-focus(var(--core-primary-color-rgb));
+    }
+  }
+
+  &.button-accent {
+    @apply bg-accent text-white border-accent;
+
+    &:hover {
+      @include button-shadow-focus(var(--core-accent-color-rgb));
+    }
+  }
+
+  &.button-warn {
+    @apply bg-warn text-white border-warn;
+
+    &:hover {
+      @include button-shadow-focus(var(--core-warn-color-rgb));
+    }
+  }
+
+  &.button--disabled, &.button--loading {
+    @apply bg-gray-300 text-gray-400 border-gray-300 #{'!important'};
+
+    &:hover {
+      box-shadow: none !important;
+    }
+  }
+}
+
+// Outlined button
+.core-outlined-button-container {
+  @include border-radius();
+
+  &.button-primary {
+    @apply border-primary text-primary bg-white;
+
+    &:hover {
+      @include button-hover(var(--core-primary-color-rgb));
+      @include button-shadow-focus(var(--core-primary-color-rgb));
+    }
+  }
+
+  &.button-accent {
+    @apply border-accent text-accent bg-white;
+
+    &:hover {
+      @include button-hover(var(--core-accent-color-rgb));
+      @include button-shadow-focus(var(--core-accent-color-rgb));
+    }
+  }
+
+  &.button-warn {
+    @apply border-warn text-warn bg-white;
+
+    &:hover {
+      @include button-hover(var(--core-warn-color-rgb));
+      @include button-shadow-focus(var(--core-warn-color-rgb));
+    }
+  }
+
+  // Disabled state
+  &.button--disabled, &.button--loading {
+    @apply bg-gray-100 text-gray-400 border-gray-300 #{'!important'};
+
+    &:hover {
+      @apply bg-gray-100 text-gray-400 border-gray-300 #{'!important'};
+      box-shadow: none !important;
+    }
+  }
+}
+
+// Raised button
+.core-raised-button-container {
+  @apply font-normal;
+  @include border-radius();
+
+  &.button-primary {
+    @apply text-white bg-primary border-primary;
+    @include box-shadow(var(--core-primary-color-rgb));
+
+    &:hover {
+      @include button-shadow-focus(var(--core-primary-color-rgb));
+    }
+  }
+
+  &.button-accent {
+    @apply text-white bg-accent border-accent;
+    @include box-shadow(var(--core-accent-color-rgb));
+
+    &:hover {
+      @include button-shadow-focus(var(--core-accent-color-rgb));
+    }
+  }
+
+  &.button-warn {
+    @apply text-white bg-warn border-warn;
+    @include box-shadow(var(--core-warn-color-rgb));
+
+    &:hover {
+      @include button-shadow-focus(var(--core-warn-color-rgb));
+    }
+  }
+
+  // Disabled state
+  &.button--disabled, &.button--loading {
+    @apply bg-gray-300 text-gray-400 border-gray-300 #{'!important'};
+    box-shadow: none !important;
+
+    &:hover {
+      @apply bg-gray-300 text-gray-400 border-gray-300 #{'!important'};
+      box-shadow: none !important;
+    }
+  }
+}
+
+// Text button
+.core-text-button-container {
+  @apply font-normal hover:underline;
+
+  &.button-primary {
+    @apply text-primary;
+  }
+
+  &.button-accent {
+    @apply text-accent;
+  }
+
+  &.button-warn {
+    @apply text-warn;
+  }
+}
+

@@ -3,7 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
-
+:root {
+  --core-primary-color-rgb: 242, 112, 199;
+  --core-primary-color-hex: #f270c7;
+  --core-accent-color-rgb: 0, 185, 152;
+  --core-accent-color-hex: #00b998;
+  --core-warn-color-rgb: 244, 67, 54;
+  --core-warn-color-hex: #f44336;
+  --core-label-text-color-rgb: black;
+  --core-default-bg-color: #fff;
+  --core-font-size-default: 1.125rem;
+  --core-btn-border-radius: 5px;
+  --core-dialog-border-radius: 50px;
+  --core-input-border-radius: 5px;
+  --mdc-dialog-container-shape: 50px;
+}
 
 @font-face {
   font-family: "Raleway";

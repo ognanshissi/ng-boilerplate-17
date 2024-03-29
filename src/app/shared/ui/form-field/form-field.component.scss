@@ -1,0 +1,33 @@
+core-form-field {
+
+  label {
+    @apply block text-left;
+  }
+
+
+
+  .form-input,
+  .form-textarea,
+  .form-select,
+  .form-multiselect{
+    @apply mt-1 block w-full text-left  border py-2 px-3 border-gray-300 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary text-xl;
+    border-radius: var(--core-input-border-radius) !important;
+
+    &.ng-dirty.ng-invalid {
+      @apply focus:border-warn border-warn #{'!important'};
+    }
+
+    &:has(:disabled) {
+      @apply bg-slate-50;
+    }
+
+  }
+
+  [coreInput]:has(~ core-icon)  {
+    @apply pr-10 #{'!important'};
+  }
+
+  .form-checkbox, .form-radio {
+    @apply bg-accent;
+  }
+}

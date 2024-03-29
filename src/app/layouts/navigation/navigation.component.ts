@@ -21,7 +21,7 @@ import { NavigationItem } from './navigation.types';
 import {AuthHttpService, AuthService} from "@socle/core/services";
 
 @Component({
-  selector: 'shared-navigation',
+  selector: 'navigation-layout',
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
   standalone: true,
