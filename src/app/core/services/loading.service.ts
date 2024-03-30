@@ -1,11 +1,11 @@
-import { Injectable, signal } from '@angular/core';
-import { Observable, concatMap, finalize, of, tap } from 'rxjs';
+import {Injectable, signal, WritableSignal} from '@angular/core';
+import {concatMap, finalize, Observable, of, tap} from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class LoadingService {
-  isLoading = signal(false);
+  public isLoading: WritableSignal<boolean> = signal(false);
 
-  showLoadingUntilCompleted<T>(obs$: Observable<T>): Observable<T> {
+  public showLoadingUntilCompleted<T>(obs$: Observable<T>): Observable<T> {
     return of(null).pipe(
       tap(() => this.start()),
       concatMap(() => obs$),
@@ -13,7 +13,7 @@ export class LoadingService {
     );
   }
 
-  stop() {
+  public stop(): void {
     this.isLoading.set(false);
   }
 

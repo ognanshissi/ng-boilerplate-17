@@ -38,7 +38,7 @@ import {AuthHttpService, AuthService} from "@socle/core/services";
 })
 export class PortalLayoutComponent {
   public profileDropOpened = false;
-  public authRepository = inject(AuthHttpService);
+  public authHttpService = inject(AuthHttpService);
   public authService = inject(AuthService);
   public openedSubmenu = signal<number | null>(null);
   menuList: NavigationItem[] = [
