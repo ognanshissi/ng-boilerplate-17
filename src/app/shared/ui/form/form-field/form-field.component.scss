@@ -2,11 +2,10 @@
 @import 'styles/fill-appearance';
 
 core-form-field {
-
   @apply w-auto relative mt-2;
 
   .input__container {
-    @apply inline-flex rounded-lg items-center mt-1 border-2 px-1 pb-0 m-0 border-gray-300 focus-within:border-primary focus-within:ring-0 focus-within:shadow-md;
+    @apply inline-flex items-center mt-1 border-2 px-1 pb-0 m-0 border-gray-300 focus-within:border-primary focus-within:ring-0 focus-within:shadow-md;
     border-radius: var(--core-input-border-radius) !important;
   }
 

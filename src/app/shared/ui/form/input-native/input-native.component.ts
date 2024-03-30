@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common'
-import { Component, ElementRef, HostBinding } from '@angular/core'
-import { AbstractControlValueAccessorComponent } from '../abstract-control-value.control'
+import {CommonModule} from '@angular/common'
+import {Component, ElementRef, HostBinding} from '@angular/core'
+import {AbstractControlValueAccessorComponent} from '../abstract-control-value.control'
 
 /**
  * Default inputs - Native Input Controls

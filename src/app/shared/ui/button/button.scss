@@ -34,7 +34,7 @@
 
 // Filled button
 .core-filled-button-container {
-  @include border-radius();
+  @include btn-border-radius();
 
   &.button-primary {
     @apply bg-primary text-white border-primary;
@@ -71,7 +71,7 @@
 
 // Outlined button
 .core-outlined-button-container {
-  @include border-radius();
+  @include btn-border-radius();
 
   &.button-primary {
     @apply border-primary text-primary bg-white;
@@ -114,7 +114,7 @@
 // Raised button
 .core-raised-button-container {
   @apply font-normal;
-  @include border-radius();
+  @include btn-border-radius();
 
   &.button-primary {
     @apply text-white bg-primary border-primary;

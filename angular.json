@@ -33,6 +33,11 @@
               "src/styles.scss",
               "src/assets/scss/material-theme.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            },
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
