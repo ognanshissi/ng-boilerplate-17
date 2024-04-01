@@ -1,0 +1,23 @@
+@mixin text-color($color) {
+  color: rgb($color);
+}
+
+core-toast {
+
+  .toast__container {
+    @apply w-[300px] bg-white p-3 my-2 border border-gray-200 shadow;
+    border-radius: var(--core-toast-border-radius);
+
+    .toast__primary {
+      core-toast-title {
+        @apply text-primary;
+      }
+    }
+
+    .toast__success {
+      core-toast-title {
+        color: red;
+      }
+    }
+  }
+}

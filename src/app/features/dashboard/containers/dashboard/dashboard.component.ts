@@ -1,11 +1,14 @@
-import { Component } from '@angular/core'
-import { MatIcon } from '@angular/material/icon'
+import {Component} from '@angular/core'
+import {MatIcon} from '@angular/material/icon'
 import {
   CoreButton,
   CoreDatepicker,
   CoreFormField,
   CoreLabel,
   CorePrefix,
+  CoreToast,
+  CoreToastContent,
+  CoreToastTitle,
 } from '@socle/ui'
 
 @Component({
@@ -17,9 +20,13 @@ import {
     CoreFormField,
     CoreLabel,
     CorePrefix,
+    CoreToast,
+    CoreToastTitle,
+    CoreToastContent
   ],
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent {}
+export class DashboardComponent {
+}
 
 export default DashboardComponent

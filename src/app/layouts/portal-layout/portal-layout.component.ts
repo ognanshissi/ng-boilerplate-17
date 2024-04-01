@@ -43,15 +43,40 @@ export class PortalLayoutComponent {
   public openedSubmenu = signal<number | null>(null);
   menuList: NavigationItem[] = [
     {
+      id: 'test',
+      type: 'group',
+      title: 'Menu'
+    },
+    {
       id: 'dashboard',
       title: 'Tableau de bord',
       icon: 'chart-square',
       link: '/dashboard',
       type: 'basic',
     },
+    {
+      id: 'test',
+      type: 'group',
+      title: 'Administration'
+    },
+    {
+      id: 'config',
+      title: 'Paramétrages',
+      icon: 'settings',
+      type: 'collapsable',
+      children: [
+        {
+          id: 'users',
+          title: 'Utilisateurs',
+          icon: 'people',
+          link: '/configs/users',
+          type: 'basic',
+        },
+      ]
+    },
   ];
   private breakpointObserver = inject(BreakpointObserver);
-  isHandset$: Observable<boolean> = this.breakpointObserver
+  public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
       map((result) => result.matches),

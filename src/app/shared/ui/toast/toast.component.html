@@ -1,0 +1,15 @@
+<div class="toast__container">
+  <div class="grid grid-cols-[1fr_auto] gap-x-2">
+    <div>
+      <mat-icon>help</mat-icon>
+    </div>
+    <div>
+      <div class="text-lg font-semibold">
+        <ng-content select="core-toast-title"></ng-content>
+      </div>
+      <p class="text-sm">
+        <ng-content select="core-toast-content"></ng-content>
+      </p>
+    </div>
+  </div>
+</div>

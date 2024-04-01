@@ -3,15 +3,21 @@
 @tailwind utilities;
 
 :root {
-  --core-primary-color-rgb: 242, 112, 199; // #f270c7
-  --core-accent-color-rgb: 0, 185, 152; // #00b998
-  --core-warn-color-rgb: 244, 67, 54; // #f44336
+  --core-primary-color-rgb: 16, 57, 65; // #103941
+  --core-accent-color-rgb: 16, 52, 86; // #103456
+  --core-warn-color-rgb: 244, 186, 201; // #f44336
   --core-label-text-color-rgb: black;
-  --core-default-bg-color: #fff;
+  --core-default-bg-color: #103456;
   --core-font-size-default: 1.125rem;
   --core-btn-border-radius: 50px;
   --core-dialog-border-radius: 50px;
   --core-input-border-radius: 5px;
+  --core-toast-border-radius: 12px;
+  --core-toast-success-color: 244, 67, 54;
+  --core-toast-danger-color: 244, 67, 54;
+  --core-toast-default-color: 244, 67, 54;
+  --core-toast-info-color: 244, 67, 54;
+  --core-toast-warning-color: 244, 67, 54;
   --mdc-dialog-container-shape: 50px;
   --core-border-radius: 5px;
 }

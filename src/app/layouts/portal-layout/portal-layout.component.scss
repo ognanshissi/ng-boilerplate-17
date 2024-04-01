@@ -4,7 +4,7 @@
 
 .sidenav {
   width: var(--sidebar-width);
-  @apply bg-accent #{!important};
+  @apply bg-gray-100 #{!important};
 }
 
 .sidenav .mat-toolbar {
@@ -15,8 +15,9 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  @apply border-b border-gray-300
 }
 
 .active-link {
-  @apply bg-primary;
+  @apply bg-primary text-white;
 }
