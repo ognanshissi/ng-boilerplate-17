@@ -39,7 +39,7 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item>Mon profil</button>
       <button mat-menu-item>Changer mon mot de passe</button>
-      <button (click)="authHttpService.logout()" mat-menu-item>
+      <button (click)="authenticationApiService.logout()" mat-menu-item>
         Déconnexion
       </button>
     </mat-menu>

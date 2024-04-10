@@ -3,16 +3,17 @@ import {HttpClient} from "@angular/common/http";
 import {LoginRequest, LoginResponse} from "@socle/core/models";
 import {Observable, tap} from "rxjs";
 import {ROOT_API} from "@socle/config";
-import {AuthService} from "@socle/core/services";
+import {AuthService, LoadingService} from "@socle/core/services";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthHttpService {
+export class AuthenticationApiService {
 
   private readonly _http = inject(HttpClient);
   private readonly API_ROOT = inject(ROOT_API);
   private readonly _authService = inject(AuthService);
+  private readonly _loadingService = inject(LoadingService);
 
   public login(payload: LoginRequest): Observable<LoginResponse> {
     return this._http.post<LoginResponse>(`${this.API_ROOT}/auth/login`, payload).pipe(
@@ -20,13 +21,21 @@ export class AuthHttpService {
     );
   }
 
-  
+
+  /**
+   * Logout api
+   */
   public logout(): Observable<void> {
     const accessToken = this._authService.getAuthToken();
-    return this._http.get<void>(`${this.API_ROOT}/auth/logout`, {
-      params: {
-        accessToken: accessToken ?? ''
-      }
-    })
+    return this._loadingService.showLoadingUntilCompleted(this._http.get<void>(`${this.API_ROOT}/auth/logout`, {
+        params: {
+          accessToken: accessToken ?? ''
+        }
+      })
+    ).pipe(
+      tap(() => {
+        this._authService.logout();
+      })
+    )
   }
 }

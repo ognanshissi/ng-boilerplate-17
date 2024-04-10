@@ -13,7 +13,7 @@ import {Router, RouterLink, RouterLinkActive, RouterOutlet,} from '@angular/rout
 import {Observable} from 'rxjs';
 import {map, shareReplay} from 'rxjs/operators';
 import {NavigationItem} from './portal-layout.types';
-import {AuthHttpService, AuthService} from "@socle/core/services";
+import {AuthenticationApiService, AuthService} from "@socle/core/services";
 
 @Component({
   selector: 'portal-layout',
@@ -38,7 +38,7 @@ import {AuthHttpService, AuthService} from "@socle/core/services";
 })
 export class PortalLayoutComponent {
   public profileDropOpened = false;
-  public authHttpService = inject(AuthHttpService);
+  public authenticationApiService = inject(AuthenticationApiService);
   public authService = inject(AuthService);
   public openedSubmenu = signal<number | null>(null);
   menuList: NavigationItem[] = [

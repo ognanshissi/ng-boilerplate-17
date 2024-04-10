@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   private readonly _router = inject(Router);
   private readonly _loadingService = inject(LoadingService);
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this._router.events
       .pipe(filter((event) => event instanceof NavigationStart))
       .subscribe(() => {

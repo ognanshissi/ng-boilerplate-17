@@ -1,25 +1,26 @@
 import {computed, inject, Injectable, signal} from '@angular/core'
 import {DecodedUserData} from '@socle/core/models'
 import {JwtHelperService} from "@auth0/angular-jwt";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
 
+  private readonly _router = inject(Router);
   private jwtHelperService = inject(JwtHelperService);
-  private readonly authStateChanged = signal(false);
-  private readonly isConnected = signal(false);
+  private readonly _authStateChanged = signal(false);
+  private readonly _isAuthenticated = signal(false);
+  public isAuthenticated = computed(() => this._isAuthenticated());
 
   private readonly _permissions = signal<string[]>([]);
-
   public permissions = computed(() => this._permissions());
 
   public setAuthLocalStorage(token: string): void {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('accessToken', token);
-      this.authStateChanged.set(true);
-      this.isConnected.set(true);
+      this._isAuthenticated.set(true);
     }
   }
 
@@ -27,6 +28,16 @@ export class AuthService {
     if (typeof localStorage !== 'undefined') {
       localStorage.clear();
     }
+  }
+
+  /**
+   *
+   */
+  public logout(): void {
+    this.clearStorage();
+    this._isAuthenticated.set(false);
+    this._permissions.set([]);
+    this._router.navigate(['/auth', 'login']);
   }
 
   public getAuthToken(): string | undefined {
