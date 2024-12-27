@@ -1,7 +1,7 @@
 import {ApplicationConfig, importProvidersFrom} from '@angular/core'
 import {provideRouter, withComponentInputBinding, withViewTransitions,} from '@angular/router'
 
-import {provideHttpClient, withFetch, withInterceptors,} from '@angular/common/http'
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http'
 import {provideClientHydration} from '@angular/platform-browser'
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async'
 import {ROOT_API, servicesConfig} from '@socle/config'

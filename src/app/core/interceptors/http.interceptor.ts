@@ -1,4 +1,4 @@
-import {HttpErrorResponse, HttpHandlerFn, HttpInterceptorFn, HttpRequest} from "@angular/common/http";
+import { HttpErrorResponse, HttpHandlerFn, HttpInterceptorFn, HttpRequest } from "@angular/common/http";
 import {AuthService} from "@socle/core/services";
 import {Router} from "@angular/router";
 import {inject} from "@angular/core";
